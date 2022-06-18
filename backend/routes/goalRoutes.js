@@ -11,16 +11,10 @@ const {
 // Create router
 const router = express.Router();
 
-// GET all goals
-router.get("/", getGoals);
+// GET all goals && POST a goal
+router.route("/").get(getGoals).post(setGoal);
 
-// POST a goal
-router.post("/", setGoal);
-
-// UPDATE a goal
-router.put("/:id", updateGoal);
-
-// DELETE a goal
-router.delete("/:id", deleteGoal);
+// UPDATE a goal && DELETE a goal
+router.route("/:id").put(updateGoal).delete(deleteGoal);
 
 module.exports = router;
